@@ -1,6 +1,6 @@
-package com.omargtdev.alurabytebank.entity;
+package com.omargtdev.alurabytebank.entity.workers;
 
-public class Manager extends  Servant {
+public class Manager extends Worker {
 
     private String password;
 
@@ -14,7 +14,7 @@ public class Manager extends  Servant {
 
     @Override
     public double getBonus() {
-        return super.getBonus() + super.getSalary();
+        return super.getSalary();
     }
 
     public boolean signIn(String password){

@@ -1,12 +1,12 @@
 package com.omargtdev.alurabytebank;
 
-import com.omargtdev.alurabytebank.entity.Designer;
-import com.omargtdev.alurabytebank.entity.Manager;
-import com.omargtdev.alurabytebank.entity.Servant;
-import com.omargtdev.alurabytebank.entity.VideoEditor;
 import com.omargtdev.alurabytebank.entity.accounts.Account;
 import com.omargtdev.alurabytebank.entity.accounts.CheckingAccount;
 import com.omargtdev.alurabytebank.entity.accounts.SavingsAccount;
+import com.omargtdev.alurabytebank.entity.workers.Designer;
+import com.omargtdev.alurabytebank.entity.workers.Manager;
+import com.omargtdev.alurabytebank.entity.workers.VideoEditor;
+import com.omargtdev.alurabytebank.entity.workers.Worker;
 import com.omargtdev.alurabytebank.helper.BonusControl;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -20,13 +20,13 @@ public class Main {
 
     public static void employees(){
         // Employees
-        Servant manager = new Manager();
+        Worker manager = new Manager();
         manager.setSalary(6000.50);
 
-        Servant videoEditor = new VideoEditor();
+        Worker videoEditor = new VideoEditor();
         videoEditor.setSalary(3500.50);
 
-        Servant designer = new Designer();
+        Worker designer = new Designer();
         videoEditor.setSalary(2800);
 
         BonusControl bonusControl = new BonusControl();

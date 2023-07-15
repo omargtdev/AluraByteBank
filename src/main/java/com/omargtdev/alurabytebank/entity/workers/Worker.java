@@ -1,16 +1,15 @@
-package com.omargtdev.alurabytebank.entity;
+package com.omargtdev.alurabytebank.entity.workers;
 
-public class Servant {
+public abstract class Worker {
 
     private String name;
     private String document;
     protected double salary;
-
     private Type type;
 
-    public Servant() {}
+    public Worker() {}
 
-    public Servant(String name, String document, double salary, Type type) {
+    public Worker(String name, String document, double salary, Type type) {
         this.name = name;
         this.document = document;
         this.salary = salary;
@@ -54,7 +53,6 @@ public class Servant {
         this.type = type;
     }
 
-    public double getBonus(){
-       return salary * .1;
-    }
+    public abstract double getBonus();
+
 }

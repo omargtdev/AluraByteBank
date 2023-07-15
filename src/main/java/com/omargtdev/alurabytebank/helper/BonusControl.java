@@ -1,11 +1,11 @@
 package com.omargtdev.alurabytebank.helper;
 
-import com.omargtdev.alurabytebank.entity.Servant;
+import com.omargtdev.alurabytebank.entity.workers.Worker;
 
 public class BonusControl {
     private double amount;
 
-    public void registerBonus(Servant servant){
+    public void registerBonus(Worker servant){
         this.amount += servant.getBonus();
         System.out.println(String.format(
                 "Registered amount: %.2f",
@@ -13,8 +13,8 @@ public class BonusControl {
         ));
     }
 
-    public void registerBonus(Servant... servants){
-        for (Servant servant :
+    public void registerBonus(Worker... servants){
+        for (Worker servant :
                 servants) {
             this.amount += servant.getBonus();
             System.out.println(String.format(

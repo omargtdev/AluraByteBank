@@ -1,13 +1,13 @@
 package com.omargtdev.alurabytebank;
 
+import com.omargtdev.alurabytebank.entity.Client;
 import com.omargtdev.alurabytebank.entity.accounts.Account;
 import com.omargtdev.alurabytebank.entity.accounts.CheckingAccount;
 import com.omargtdev.alurabytebank.entity.accounts.SavingsAccount;
-import com.omargtdev.alurabytebank.entity.workers.Designer;
-import com.omargtdev.alurabytebank.entity.workers.Manager;
-import com.omargtdev.alurabytebank.entity.workers.VideoEditor;
-import com.omargtdev.alurabytebank.entity.workers.Worker;
+import com.omargtdev.alurabytebank.entity.workers.*;
 import com.omargtdev.alurabytebank.helper.BonusControl;
+import com.omargtdev.alurabytebank.security.Authentication;
+import com.omargtdev.alurabytebank.security.InternalSystem;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
@@ -15,7 +15,9 @@ public class Main {
     public static void main(String[] args) {
         //employees();
 
-        accounts();
+        //accounts();
+
+        login();
     }
 
     public static void employees(){
@@ -47,6 +49,23 @@ public class Main {
 
         System.out.println(checkingAccount.getBalance());
         System.out.println(savingsAccount.getBalance());
+    }
+
+    public static void login(){
+        Authentication client = new Client();
+        client.setPassword("mySecretPassword");
+
+        Authentication admin = new Administrator();
+        admin.setPassword("holi123");
+
+        Authentication manager = new Manager();
+        manager.setPassword("pass123");
+
+        InternalSystem internalSystem = new InternalSystem();
+
+        internalSystem.authenticate(client);
+        internalSystem.authenticate(admin);
+        internalSystem.authenticate(manager);
     }
 
 }

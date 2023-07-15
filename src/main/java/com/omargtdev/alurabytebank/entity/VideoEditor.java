@@ -1,4 +1,4 @@
-package com.omargtdev.alurabytebank.entities;
+package com.omargtdev.alurabytebank.entity;
 
 public class VideoEditor extends Servant {
 

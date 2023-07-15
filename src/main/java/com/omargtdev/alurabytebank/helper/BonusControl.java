@@ -1,6 +1,6 @@
 package com.omargtdev.alurabytebank.helper;
 
-import com.omargtdev.alurabytebank.entities.Servant;
+import com.omargtdev.alurabytebank.entity.Servant;
 
 public class BonusControl {
     private double amount;

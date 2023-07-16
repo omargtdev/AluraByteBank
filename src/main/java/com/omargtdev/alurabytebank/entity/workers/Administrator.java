@@ -1,10 +1,13 @@
 package com.omargtdev.alurabytebank.entity.workers;
 
 import com.omargtdev.alurabytebank.security.Authentication;
+import com.omargtdev.alurabytebank.security.AuthenticationUtil;
 
 public class Administrator extends Worker implements Authentication {
 
-    private String password;
+    private AuthenticationUtil authenticationUtil =
+            new AuthenticationUtil();
+
 
     @Override
     public double getBonus() {
@@ -13,11 +16,11 @@ public class Administrator extends Worker implements Authentication {
 
     @Override
     public void setPassword(String password) {
-        this.password = password;
+        authenticationUtil.setPassword(password);
     }
 
     @Override
     public boolean signIn(String password) {
-        return this.password.equals(password);
+        return authenticationUtil.signIn(password);
     }
 }

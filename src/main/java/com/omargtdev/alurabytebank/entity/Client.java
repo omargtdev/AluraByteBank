@@ -1,13 +1,16 @@
 package com.omargtdev.alurabytebank.entity;
 
 import com.omargtdev.alurabytebank.security.Authentication;
+import com.omargtdev.alurabytebank.security.AuthenticationUtil;
 
 public class Client implements Authentication {
 
     private String name;
     private String document;
     private String phoneNumber;
-    private String password;
+
+    private AuthenticationUtil authenticationUtil =
+            new AuthenticationUtil();
 
     public Client() {}
 
@@ -37,12 +40,12 @@ public class Client implements Authentication {
 
     @Override
     public void setPassword(String password) {
-        this.password = password;
+        authenticationUtil.setPassword(password);
     }
 
     @Override
     public boolean signIn(String password) {
-        return this.password.equals(password);
+        return authenticationUtil.signIn(password);
     }
 
 }

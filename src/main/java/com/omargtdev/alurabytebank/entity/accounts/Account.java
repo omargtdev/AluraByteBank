@@ -1,6 +1,10 @@
 package com.omargtdev.alurabytebank.entity.accounts;
 
 import com.omargtdev.alurabytebank.entity.Client;
+import com.omargtdev.alurabytebank.exception.InsufficientFundsException;
+import com.omargtdev.alurabytebank.exception.InvalidAmountException;
+
+import java.nio.file.InvalidPathException;
 
 public abstract class Account {
 
@@ -20,40 +24,28 @@ public abstract class Account {
         this.client = client;
     }
 
-    public boolean deposit(double amount){
-        if(isInvalidAmount(amount))
-            return false;
+    protected void checkInvalidAmount(double amount) throws  InvalidAmountException {
+        if(amount <= 0)
+            throw new InvalidAmountException("The amount must be greater than 0.");
+    }
 
+    public void deposit(double amount) throws InvalidAmountException {
+        this.checkInvalidAmount(amount);
         this.balance += amount;
-        return true;
     }
 
-    protected boolean isInvalidAmount(double amount){
-        return amount <= 0;
-    }
-
-    protected boolean cannotBeWithdrawn(double amountToWithdrawn){
-        return isInvalidAmount(amountToWithdrawn) ||
-                (this.balance <= 0 || this.balance < amountToWithdrawn);
-    }
-
-    public boolean withdraw(double amount){
-        if(cannotBeWithdrawn(amount))
-            return false;
+    public void withdraw(double amount) throws InvalidAmountException, InsufficientFundsException {
+        this.checkInvalidAmount(amount);
+        if(this.balance < amount)
+            throw new InsufficientFundsException("The account balance is not enough to withdraw.");
         this.balance -= amount;
-        return true;
     }
 
-    public boolean transferToAnother(double amount, Account destination){
-        if(destination.equals(this))
-            return false;
-
-        boolean wasSatisfactoryWithdraw = withdraw(amount);
-        if(!wasSatisfactoryWithdraw)
-            return false;
-
-        boolean wasSatisfactoryDeposit = destination.deposit(amount);
-        return wasSatisfactoryDeposit;
+    public void transferToAnother(double amount, Account destination) throws InvalidAmountException, InsufficientFundsException {
+        if(!destination.equals(this)){
+            this.withdraw(amount);
+            destination.deposit(amount);
+        }
     }
 
     public enum Agency {

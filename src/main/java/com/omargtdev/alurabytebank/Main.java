@@ -5,6 +5,8 @@ import com.omargtdev.alurabytebank.entity.accounts.Account;
 import com.omargtdev.alurabytebank.entity.accounts.CheckingAccount;
 import com.omargtdev.alurabytebank.entity.accounts.SavingsAccount;
 import com.omargtdev.alurabytebank.entity.workers.*;
+import com.omargtdev.alurabytebank.exception.InsufficientFundsException;
+import com.omargtdev.alurabytebank.exception.InvalidAmountException;
 import com.omargtdev.alurabytebank.helper.BonusControl;
 import com.omargtdev.alurabytebank.security.Authentication;
 import com.omargtdev.alurabytebank.security.InternalSystem;
@@ -15,9 +17,9 @@ public class Main {
     public static void main(String[] args) {
         //employees();
 
-        //accounts();
+        accounts();
 
-        login();
+        //login();
     }
 
     public static void employees(){
@@ -41,14 +43,19 @@ public class Main {
         Account checkingAccount = new CheckingAccount(1234, Account.Agency.LIMA);
         Account savingsAccount = new SavingsAccount(1234, Account.Agency.AYACUCHO);
 
-        System.out.println(checkingAccount.deposit(800));
-        System.out.println(savingsAccount.deposit(1000));
-
-        System.out.println("Transfer: " + checkingAccount.transferToAnother(
-                799.80, savingsAccount));
-
-        System.out.println(checkingAccount.getBalance());
-        System.out.println(savingsAccount.getBalance());
+        try {
+            checkingAccount.deposit(800);
+            savingsAccount.deposit(230);
+            checkingAccount.transferToAnother(
+                    800, savingsAccount);
+            checkingAccount.withdraw(200);
+        } catch (InvalidAmountException | InsufficientFundsException ex){
+            System.out.println(ex.getClass().getName()
+                    + ": " + ex.getMessage());
+        } finally {
+            System.out.println(checkingAccount.getBalance());
+            System.out.println(savingsAccount.getBalance());
+        }
     }
 
     public static void login(){

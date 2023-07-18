@@ -3,6 +3,8 @@ package com.omargtdev.alurabytebank.entity.workers;
 import com.omargtdev.alurabytebank.security.Authentication;
 import com.omargtdev.alurabytebank.security.AuthenticationUtil;
 
+import java.io.Serializable;
+
 public class Administrator extends Worker implements Authentication {
 
     private AuthenticationUtil authenticationUtil =

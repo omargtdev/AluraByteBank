@@ -1,6 +1,8 @@
 package com.omargtdev.alurabytebank.entity.accounts;
 
 import com.omargtdev.alurabytebank.entity.Client;
+import com.omargtdev.alurabytebank.exception.InsufficientFundsException;
+import com.omargtdev.alurabytebank.exception.InvalidAmountException;
 
 public class CheckingAccount extends Account {
 
@@ -15,7 +17,7 @@ public class CheckingAccount extends Account {
     }
 
     @Override
-    public boolean withdraw(double amount) {
-        return super.withdraw(amount + MOVEMENT_FEE);
+    public void withdraw(double amount) throws InvalidAmountException, InsufficientFundsException {
+        super.withdraw(amount + MOVEMENT_FEE);
     }
 }

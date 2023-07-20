@@ -1,7 +1,8 @@
-package com.omargtdev.alurabytebank.entity;
+package com.omargtdev.alura.bytebank.entity;
+//      com.omargtdev.alurabytebank
 
-import com.omargtdev.alurabytebank.security.Authentication;
-import com.omargtdev.alurabytebank.security.AuthenticationUtil;
+import com.omargtdev.alura.bytebank.security.Authentication;
+import com.omargtdev.alura.bytebank.security.AuthenticationUtil;
 
 public class Client implements Authentication {
 

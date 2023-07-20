@@ -1,8 +1,8 @@
-package com.omargtdev.alurabytebank.entity.accounts;
+package com.omargtdev.alura.bytebank.entity.accounts;
 
-import com.omargtdev.alurabytebank.entity.Client;
-import com.omargtdev.alurabytebank.exception.InsufficientFundsException;
-import com.omargtdev.alurabytebank.exception.InvalidAmountException;
+import com.omargtdev.alura.bytebank.entity.Client;
+import com.omargtdev.alura.bytebank.exception.InsufficientFundsException;
+import com.omargtdev.alura.bytebank.exception.InvalidAmountException;
 
 public class CheckingAccount extends Account {
 

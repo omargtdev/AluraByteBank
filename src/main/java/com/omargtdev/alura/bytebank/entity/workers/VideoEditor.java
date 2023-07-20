@@ -1,4 +1,4 @@
-package com.omargtdev.alurabytebank.entity.workers;
+package com.omargtdev.alura.bytebank.entity.workers;
 
 public class VideoEditor extends Worker {
 

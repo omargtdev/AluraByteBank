@@ -1,6 +1,6 @@
-package com.omargtdev.alurabytebank.entity.accounts;
+package com.omargtdev.alura.bytebank.entity.accounts;
 
-import com.omargtdev.alurabytebank.entity.Client;
+import com.omargtdev.alura.bytebank.entity.Client;
 
 public class SavingsAccount extends Account {
 

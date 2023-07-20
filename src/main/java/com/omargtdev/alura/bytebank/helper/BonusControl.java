@@ -1,6 +1,6 @@
-package com.omargtdev.alurabytebank.helper;
+package com.omargtdev.alura.bytebank.helper;
 
-import com.omargtdev.alurabytebank.entity.workers.Worker;
+import com.omargtdev.alura.bytebank.entity.workers.Worker;
 
 public class BonusControl {
     private double amount;

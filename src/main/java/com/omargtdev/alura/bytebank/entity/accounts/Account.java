@@ -1,10 +1,8 @@
-package com.omargtdev.alurabytebank.entity.accounts;
+package com.omargtdev.alura.bytebank.entity.accounts;
 
-import com.omargtdev.alurabytebank.entity.Client;
-import com.omargtdev.alurabytebank.exception.InsufficientFundsException;
-import com.omargtdev.alurabytebank.exception.InvalidAmountException;
-
-import java.nio.file.InvalidPathException;
+import com.omargtdev.alura.bytebank.entity.Client;
+import com.omargtdev.alura.bytebank.exception.InsufficientFundsException;
+import com.omargtdev.alura.bytebank.exception.InvalidAmountException;
 
 public abstract class Account {
 
@@ -24,7 +22,7 @@ public abstract class Account {
         this.client = client;
     }
 
-    protected void checkInvalidAmount(double amount) throws  InvalidAmountException {
+    protected void checkInvalidAmount(double amount) throws InvalidAmountException {
         if(amount <= 0)
             throw new InvalidAmountException("The amount must be greater than 0.");
     }

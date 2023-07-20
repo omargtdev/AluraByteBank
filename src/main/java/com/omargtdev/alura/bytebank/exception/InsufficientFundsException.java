@@ -1,4 +1,4 @@
-package com.omargtdev.alurabytebank.exception;
+package com.omargtdev.alura.bytebank.exception;
 
 public class InsufficientFundsException extends Exception {
 

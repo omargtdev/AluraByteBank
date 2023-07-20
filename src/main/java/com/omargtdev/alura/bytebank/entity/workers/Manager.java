@@ -1,7 +1,7 @@
-package com.omargtdev.alurabytebank.entity.workers;
+package com.omargtdev.alura.bytebank.entity.workers;
 
-import com.omargtdev.alurabytebank.security.Authentication;
-import com.omargtdev.alurabytebank.security.AuthenticationUtil;
+import com.omargtdev.alura.bytebank.security.Authentication;
+import com.omargtdev.alura.bytebank.security.AuthenticationUtil;
 
 public class Manager extends Worker implements Authentication {
 

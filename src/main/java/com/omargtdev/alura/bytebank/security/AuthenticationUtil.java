@@ -1,4 +1,4 @@
-package com.omargtdev.alurabytebank.security;
+package com.omargtdev.alura.bytebank.security;
 
 public class AuthenticationUtil implements Authentication {
 

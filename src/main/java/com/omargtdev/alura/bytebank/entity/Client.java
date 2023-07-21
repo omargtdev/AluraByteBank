@@ -1,5 +1,4 @@
 package com.omargtdev.alura.bytebank.entity;
-//      com.omargtdev.alurabytebank
 
 import com.omargtdev.alura.bytebank.security.Authentication;
 import com.omargtdev.alura.bytebank.security.AuthenticationUtil;

@@ -14,6 +14,12 @@ public class Client implements Authentication {
 
     public Client() {}
 
+    public Client(String name, String document, String phoneNumber) {
+        this.name = name;
+        this.document = document;
+        this.phoneNumber = phoneNumber;
+    }
+
     public String getName() {
         return name;
     }
@@ -48,4 +54,12 @@ public class Client implements Authentication {
         return authenticationUtil.signIn(password);
     }
 
+    @Override
+    public String toString() {
+        return "Client{" +
+                "name='" + name + '\'' +
+                ", document='" + document + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 }

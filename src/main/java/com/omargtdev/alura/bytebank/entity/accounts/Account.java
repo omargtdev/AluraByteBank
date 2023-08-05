@@ -11,7 +11,7 @@ import com.omargtdev.alura.bytebank.exception.InvalidAmountException;
  * @author omargtdev
  * @version 1.0
  */
-public abstract class Account {
+public abstract class Account implements Comparable<Account> {
 
     private int number;
     private Agency agency;
@@ -82,4 +82,32 @@ public abstract class Account {
         return client;
     }
 
+    @Override
+    public String toString() {
+        return "Account{" +
+                "number=" + number +
+                ", agency=" + agency +
+                ", balance=" + balance +
+                ", client=" + (client == null ? "null" : client.getName()) +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+
+        if (!(obj instanceof Account))
+            return false;
+
+        Account account = (Account) obj;
+
+        return this.number == account.getNumber() &&
+                this.agency == account.getAgency();
+    }
+
+    @Override
+    public int compareTo(Account o) {
+        return Integer.compare(number, o.getNumber());
+    }
 }
